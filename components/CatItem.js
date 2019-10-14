@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 export default class CatItem extends React.Component {
 	randomColor() {
 		return [
@@ -16,12 +18,16 @@ export default class CatItem extends React.Component {
    		cat.classColor =  typeof cat.classColor === "undefined" ? this.randomColor() : cat.classColor
    		//  <div className='mb-3'>
 	 	return <div className='col-12 col-sm-6'>
-		      <div className={`card ${cat.classColor} mb-3`}>
-			  <div className='card-header'>{ cat.id }</div>
-			  <div className='card-body'>
-			    <img src={cat.url} className='mw-100'/>
-			  </div>
-            </div>
+	 		<Link href={"/cat?id="+cat.id}>
+			  <a>
+			  	<div className={`card ${cat.classColor} mb-3`}>
+				  <div className='card-header'>{ cat.id }</div>
+				  <div className='card-body'>
+				    <img src={cat.url} className='mw-100'/>
+				  </div>
+	            </div>
+			  </a>
+			</Link>
 		</div>
    }	
 }
