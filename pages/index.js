@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Error from './_error'
 import Layout from '../components/Layout'
 import CatGrid from '../components/CatGrid'
-import Loding from '../components/Loding'
+import Loading from '../components/Loading'
 import cat from '../plugins/cat'
 
 export default class extends React.Component {
@@ -11,32 +11,6 @@ export default class extends React.Component {
 		super(props)
 		this.state = {page:0,cats:[],limit:10}
 	}
-	/*
-	static async getInitialProps({ res }) {
-		try {
-			let {limit,page,cats} = {page:1,cats:[],limit:10}
-			const newcats = await cat
-						.search({limit,page})
-						.then(cats => {
-							return cats
-						})
-			cats = cats.concat(newcats)
-			
-			//this.state = {limit,page,cats}
-			_this().setState({
-				limit,
-				page,
-				cats
-			})
-			res.statusCod = 200
-			return {cats, statusCode:200}
-		} catch (e) {
-			console.log(e)
-			res.statusCod = 503
-			return { cats:[], statusCode:503 }
-		}
-	}
-	*/
 	componentDidMount() {
 		this.loadMore()
 	}
@@ -75,10 +49,10 @@ export default class extends React.Component {
 		    return <Error statusCode="500"></Error>
 		}
 
-		return <Layout title="Home">
+		return <Layout title="HOME" selected_id="home">
 		{
 			!cats.length ?
-			<Loding/> :
+			<Loading/> :
 			<CatGrid cats={cats} loadMore={this.loadMore}/>
 		}
 		</Layout>

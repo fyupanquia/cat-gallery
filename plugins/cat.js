@@ -10,4 +10,9 @@ catService.findById = function (q) {
 		.get(`/images/${q.id}`, { params: {} })
 		.then(rsp =>  rsp.data)
 }
+catService.analysis = function (q) {
+	return catAPI
+		.get(`/images/${q.id}/analysis`, { params: {} })
+		.then(rsp =>  rsp.data)
+}
 export default catService
