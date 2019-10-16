@@ -28,7 +28,6 @@ export default class extends React.Component {
 				this.setState({
 					cats
 				})
-				console.log(this.state)
 			})
 			.catch(rsp => {
 				this.setState({
@@ -46,7 +45,7 @@ export default class extends React.Component {
 		const { cats } = this.state
 
 		if (cats === null) {
-		    return <Error statusCode="500"></Error>
+		    return <Error statusCode="500"/>
 		}
 
 		return <Layout title="HOME" selected_id="home">

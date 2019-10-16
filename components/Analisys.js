@@ -1,7 +1,7 @@
 export default class Analisys extends React.Component{
 	render() {
 		const { data } = this.props
-		console.log(data)
+		
 		return <React.Fragment>
 			<table className="table table-striped table-dark mw-100">
 			  <thead>

@@ -1,3 +1,4 @@
+import Error from './_error'
 import Layout from '../components/Layout'
 import cat from '../plugins/cat'
 import Loading from '../components/Loading'
@@ -20,7 +21,7 @@ export default class extends React.Component {
 			})
 			return { cat:rsp, statusCode: 200 }
 		} catch (e) {
-			return { cat:null, statusCode: 503 }
+			return { cat:false, statusCode: 404 }
 		}
 	}
 	async analysis(id) {
@@ -40,9 +41,9 @@ export default class extends React.Component {
 	}
 	render() {
 		const { cat, statusCode } = this.props
-
+		
 		if (statusCode !== 200) {
-		    return <Error statusCode={statusCode} ></Error>
+		    return <Error statusCode={statusCode} />
 		}
 
 		const keys = Object.keys(cat)
@@ -51,7 +52,7 @@ export default class extends React.Component {
 				<Loading/> :
 				<div className="pt-5 pb-5">
 					<figure className="figure">
-					  <img src={cat.url} className="figure-img img-fluid rounded" alt="..."/>
+					  <a href={cat.url} target='_blank'><img src={cat.url} className="figure-img img-fluid rounded" alt="..."/></a>
 					  <figcaption className="figure-caption">
 					  		<ul>
 							   { Object.values(cat).map((value, index) => {

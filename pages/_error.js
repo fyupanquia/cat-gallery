@@ -1,6 +1,7 @@
 import React from 'react'
 import Layout from '../components/Layout'
-import Link from 'next/link'
+//import Link from 'next/link'
+import {Link} from '../routes'
 
 export default class Error extends React.Component {
 
@@ -21,7 +22,7 @@ export default class Error extends React.Component {
             <div className="message">
               <h2>This page does not exists</h2>
               <img  src="/static/404.png"/>
-              <small><Link href="/"><button type="button" className="btn btn-outline-success">Go home</button></Link></small>
+              <small><Link route="/"><button type="button" className="btn btn-outline-success">Go home</button></Link></small>
             </div>
           </main>
           :

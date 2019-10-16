@@ -1,4 +1,5 @@
-import Link from 'next/link'
+//import Link from 'next/link'
+import {Link} from '../routes'
 
 export default class CatItem extends React.Component {
 	randomColor() {
@@ -18,7 +19,7 @@ export default class CatItem extends React.Component {
    		cat.classColor =  typeof cat.classColor === "undefined" ? this.randomColor() : cat.classColor
    		//  <div className='mb-3'>
 	 	return <div className='col-12 col-sm-6'>
-	 		<Link href={"/cat?id="+cat.id}>
+	 		<Link route='cat' params={ {id:cat.id} }>
 			  <a>
 			  	<div className={`card ${cat.classColor} mb-3`}>
 				  <div className='card-header'>{ cat.id }</div>

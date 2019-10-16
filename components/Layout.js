@@ -1,5 +1,6 @@
 import Header from './partials/Header';
-import Link from 'next/link'
+//import Link from 'next/link'
+import {Link} from '../routes'
 import Head from 'next/head'
 //import 'bootstrap/dist/css/bootstrap.min.css';
 import '../assets/css/bootstrap.4.3.min.css';
@@ -25,14 +26,15 @@ export default class Layout extends React.Component {
 		return <React.Fragment>
 			<Head>
 				<title>{ title }</title>
+				<link rel="icon" type="image/vnd.microsoft.icon" href="/static/favicon.ico"/>
 			</Head>
 			<div className='cover-container d-flex w-100 h-100 p-3 mx-auto flex-column'>
 			  <header className='masthead mb-auto'>
 			    <div className='inner'>
-			      <Link href="/"><a><h3 className='masthead-brand'>CatGallery</h3></a></Link>
+			      <Link route='/'><a><h3 className='masthead-brand'>CatGallery</h3></a></Link>
 			      <nav className='nav nav-masthead justify-content-center'>
 			      	{ this.state.menus.map(menu => {
-							return <Link key={menu.id} href={menu.url} ><a className={`nav-link `+ (menu.selected ? 'active' : '') } >{ menu.label }</a></Link>
+							return <Link key={menu.id} route={menu.url} ><a className={`nav-link `+ (menu.selected ? 'active' : '') } >{ menu.label }</a></Link>
 			      		})
 			      	}
 			      </nav>
