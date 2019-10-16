@@ -68,7 +68,7 @@ export default class extends React.Component {
 					</figure>
 
 					{
-						!this.state.analysis ? <button type="button" className="btn btn-outline-warning btn-lg btn-block" onClick={ () => this.analysis.call(this,cat.id) }>Analitycs</button> : 
+						!this.state.analysis ? <button type="button" className="btn btn-outline-warning btn-lg btn-block" onClick={ () => this.analysis.call(this,cat.id) }>Analysis</button> : 
 						this.state.analysis
 					}
 				</div>

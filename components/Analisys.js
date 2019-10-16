@@ -14,14 +14,14 @@ export default class Analisys extends React.Component{
 			  </thead>
 			  <tbody>
 			  	{
-			  		data.map(row => {
-			  			return <tr>
+			  		data.length ? data.map((row,i) => {
+			  			return <tr key={i} >
 						      <th scope="row">{ row.image_id }</th>
 						      <td>{ row.labels.map(c => c.Name ).join(',') }</td>
 						      <td>{ row.vendor }</td>
 						      <td>{ row.created_at }</td>
-						    </tr>
-			  		})
+						    </tr> 
+			  		}) : <tr><td colSpan='4'>No analysis information was found for this little cat.</td></tr>
 			  	}
 			  </tbody>
 			</table>
